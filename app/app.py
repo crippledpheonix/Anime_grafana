@@ -1,10 +1,15 @@
 import streamlit as st
 from pipeline.pipeline import AnimeRecommendationPipeline
 from dotenv import load_dotenv
+import os
+
 
 st.set_page_config(page_title="Anime Recommnder",layout="wide")
 
 load_dotenv()
+
+api_key = os.getenv("API_KEY")
+huggingface_api_key = os.getenv("HUGGINGFACE_API_KEY")
 
 @st.cache_resource
 def init_pipeline():
